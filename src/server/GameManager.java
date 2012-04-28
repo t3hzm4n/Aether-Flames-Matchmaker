@@ -152,10 +152,11 @@ private static final int SERVER_PORT = 4444;
 						}
 						//sendServerMessage(new ServerServerMessage()));
 						pool.recycleMessage(currentPlayerCountPhoneMessage);
+						
 					}
 				});
 				
-				connector.registerClientMessage(FLAG_MESSAGE_PHONE_GAME_START, GameStartPhoneMessage.class, new IClientMessageHandler<SocketConnection>() 
+				connector.registerClientMessage(FLAG_MESSAGE_SERVER_GAME_START, GameStartPhoneMessage.class, new IClientMessageHandler<SocketConnection>()
 				{
 					@Override
 					public void onHandleMessage(final ClientConnector<SocketConnection> pClientConnector, final IClientMessage pClientMessage) throws IOException 
@@ -242,7 +243,6 @@ private static final int SERVER_PORT = 4444;
 		private String myName;
 		private int numPlayers;
 		private int maxPlayers;
-		private int numVotes;
 		private boolean gameActive;
 		
 		private GameServer(String ip, String name, int max)
@@ -251,7 +251,6 @@ private static final int SERVER_PORT = 4444;
 			myName = name;
 			maxPlayers = max;
 			numPlayers = 1;
-			numVotes = 0;
 			gameActive = false;
 		}
 		
@@ -286,12 +285,6 @@ private static final int SERVER_PORT = 4444;
 		public int getMaxPlayers() {
 			return maxPlayers;
 		}
-		public void setNumVotes(int numVotes) {
-			this.numVotes = numVotes;
-		}
-		public int getNumVotes() {
-			return numVotes;
-		}
 		public void setGameActive(boolean gameActive) {
 			this.gameActive = gameActive;
 		}
@@ -299,6 +292,10 @@ private static final int SERVER_PORT = 4444;
 			return gameActive;
 		}
 		
+		public String toString()
+		{
+			return myName + "|" + myIP + "|" + numPlayers + "|" + maxPlayers + "|" + gameActive;
+		}
 		
 	}
 }

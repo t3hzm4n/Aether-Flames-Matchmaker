@@ -45,6 +45,13 @@ public interface AetherFlamesConstants {
 //	public static final short FLAG_MESSAGE_MM_CLIENT_SERVER_LIST = FLAG_MESSAGE_MM_CLIENT_SERVER + 1;
 	
 	
+	public static final short FLAG_MESSAGE_SERVER_NEW_BULLET = 1;
+	public static final short FLAG_MESSAGE_SERVER_GAME_STATE = FLAG_MESSAGE_SERVER_NEW_BULLET + 1;
+	public static final short FLAG_MESSAGE_SERVER_SHIP_UPDATE = FLAG_MESSAGE_SERVER_GAME_STATE + 1;
+	public static final short FLAG_MESSAGE_SERVER_COLLISION = FLAG_MESSAGE_SERVER_SHIP_UPDATE + 1;
+	public static final short FLAG_MESSAGE_SERVER_GAME_START = FLAG_MESSAGE_SERVER_COLLISION + 1;
+	public static final short FLAG_MESSAGE_SERVER_GAME_END = FLAG_MESSAGE_SERVER_GAME_START + 1;
+
 	
     /* Phone --> Matchmaker */
     public static final short FLAG_MESSAGE_PHONE_CONNECTION_CLOSE = 1;
